@@ -123,7 +123,6 @@ namespace AStar
             this.maxX = maxX;
             this.maxY = maxY;
             this.canMoveDiagonally = canMoveDiagonally;
-            initialLocation = new Location();
             goalLocations = new List<Location>();
             obstacles = new List<Location>();
             aStar = new AStar<Location>(GetAdjacentLocations, CalculateCostToMove, CalculateDistanceToGoal);
@@ -257,9 +256,13 @@ namespace AStar
         /// <param name="locB">Location B.</param>
         /// <returns>The cost to move from location A to location B.</returns>
         /// <remarks>This function always returns 1.</remarks>
+        /// <exception cref="ArgumentNullException">Exception thrown if any of the arguments is <i>null</i>.</exception>
         private double CalculateCostToMove(Location locA, Location locB)
         {
-            return 1;
+            if (locA == null || locB == null)
+                throw new ArgumentNullException("Argument cannot be null.");
+
+            return (locA.X != locB.X && locA.Y != locB.Y) ? 2 : 1;
         }
 
         /// <summary>
@@ -268,7 +271,7 @@ namespace AStar
         /// <param name="loc">The location to calculate from.</param>
         /// <param name="goal">The goal location.</param>
         /// <returns>A value indicating how far the location is from the goal.</returns>
-        /// <exception cref="ArgumentNullException">Exception throws if any of the arguments is <i>null</i>.</exception>
+        /// <exception cref="ArgumentNullException">Exception thrown if any of the arguments is <i>null</i>.</exception>
         private double CalculateDistanceToGoal(Location loc, Location goal)
         {
             if(loc == null || goal == null)

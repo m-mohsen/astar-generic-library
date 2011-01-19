@@ -31,8 +31,8 @@ namespace DemoAStar
         private const string initialTag = "Initial";
         private const string goalTag = "Goal";
         private const string routeTag = "Route";
-        private const int width = 9;
-        private const int height = 5;
+        private const int width = 39;
+        private const int height = 22;
 
         public frmDemo()
         {
@@ -49,7 +49,6 @@ namespace DemoAStar
                 cell.Click += new EventHandler(Cell_Click);
             }
         }
-
                
         private void Cell_Click(object sender, EventArgs e)
         {
@@ -79,37 +78,37 @@ namespace DemoAStar
         #region Cells States
         private void MakeObstacle(Button cell)
         {
-            cell.BackColor = Color.LightGray;
+            cell.BackColor = Color.Gray;
             cell.Tag = obstacleTag;
-            cell.Text = obstacleTag;
+            //cell.Text = obstacleTag;
         }
 
         private void MakeInitial(Button cell)
         {
-            cell.BackColor = Color.LightPink;
+            cell.BackColor = Color.Yellow;
             cell.Tag = initialTag;
-            cell.Text = initialTag;
+            //cell.Text = initialTag;
         }
 
         private void MakeGoal(Button cell)
         {
-            cell.BackColor = Color.LightBlue;
+            cell.BackColor = Color.Green;
             cell.Tag = goalTag;
-            cell.Text = goalTag;
+            //cell.Text = goalTag;
         }
 
         private void MakeEmpty(Button cell)
         {
             cell.BackColor = Color.Transparent;
             cell.Tag = emptyTag;
-            cell.Text = "";
+            //cell.Text = "";
         }
 
         private void MakeRoute(Button cell)
         {
-            cell.BackColor = Color.LightGreen;
+            cell.BackColor = Color.Red;
             cell.Tag = routeTag;
-            cell.Text = "";
+            //cell.Text = "";
         }
         #endregion
 
