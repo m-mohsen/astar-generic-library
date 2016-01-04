@@ -1,0 +1,1 @@
+Implementation of a generic A`*` algorithm in a Dynamic Link Library (DLL). Also, it implements a pathfinder that is based on the A`*` algorithm. A demo GUI application is included that uses the library to find the path between an initial location and one of many possible goal locations.
